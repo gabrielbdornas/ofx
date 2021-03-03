@@ -121,19 +121,19 @@ module OFX
         occurred_at = build_date(element.search("dtuser").inner_text) rescue nil
 
         OFX::Transaction.new({
-          amount:            build_amount(element),
-          amount_in_pennies: (build_amount(element) * 100).to_i,
-          fit_id:            element.search("fitid").inner_text,
-          memo:              element.search("memo").inner_text,
-          name:              element.search("name").inner_text,
-          payee:             element.search("payee").inner_text,
-          check_number:      element.search("checknum").inner_text,
-          ref_number:        element.search("refnum").inner_text,
-          posted_at:         build_date(element.search("dtposted").inner_text),
-          currency_currate:  element.search("currate").inner_text,
-          occurred_at:       occurred_at,
-          type:              build_type(element),
-          sic:               element.search("sic").inner_text
+          :amount            => build_amount(element),
+          :amount_in_pennies => (build_amount(element) * 100).to_i,
+          :fit_id            => element.search("fitid").inner_text,
+          :memo              => element.search("memo").inner_text,
+          :name              => element.search("name").inner_text,
+          :payee             => element.search("payee").inner_text,
+          :check_number      => element.search("checknum").inner_text,
+          :ref_number        => element.search("refnum").inner_text,
+          :posted_at         => build_date(element.search("dtposted").inner_text),
+          :currency_currate  => element.search("currate").inner_text,
+          :occurred_at       => occurred_at,
+          :type_element      => build_type(element),
+          :sic               => element.search("sic").inner_text
         })
       end
 

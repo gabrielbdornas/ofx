@@ -11,7 +11,7 @@ module OFX
     attr_accessor :occurred_at
     attr_accessor :ref_number
     attr_accessor :currency_currate
-    attr_accessor :type
+    attr_accessor :type_element
     attr_accessor :sic
   end
 end
